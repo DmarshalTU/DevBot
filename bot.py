@@ -22,6 +22,7 @@ console = Console()
 def _handler(bot):
     @bot.message_handler(content_types=['text'])
     def send_text(message):
+        console.log(f'Allowed: {message.chat.id} -> {check_banned(message)}')
         if check_banned(message) == True:
             pick_cmd(bot, message)
 
@@ -29,6 +30,7 @@ def _handler(bot):
             _cnf(bot, message)
 
 def pick_cmd(bot, message):
+    console.log(message.text.lower())
     if message.text.lower() in gls:
         try:
             data = gls[message.text.lower()]()
@@ -102,32 +104,34 @@ def check_banned(msg) -> bool:
                         return False
             return True
     except Exception as ex:
-        pass
+        # TODO WARNING!!!!!! AHTUNG!!!!
+        return True
 
 def telegram_bot(api_token):
     bot = telebot.TeleBot(api_token)
 
     @bot.message_handler(commands=['start'])
     def start_msg(message):
-        if message.chat.id == ADMIN:
+        if message.chat.id == int(ADMIN):
             bot.send_message(message.chat.id, "Hello Admin!")
-            print(f'Loggen in: {message.chat.id}')
+            console.log(f'Loggen in: {message.chat.id}')
 
         else:
             bot.send_message(message.chat.id, "403")
-            print(f'Tried: {message.chat.id}')
+            console.log(f'Tried: {message.chat.id}')
             ban_user(message)
 
         logs(message)
 
     _handler(bot)
-    while True:
-        try:
-            print("[bold magenta]Started[/bold magenta]")
-            bot.polling()
-        except requests.exceptions.ReadTimeout:
-            print("[bold magenta]Reloaded[/bold magenta]")
-            continue
+    bot.polling()
+    # while True:
+    #     try:
+    #         print("[bold magenta]Started[/bold magenta]")
+    #         bot.polling()
+    #     except requests.exceptions.ReadTimeout:
+    #         print("[bold magenta]Reloaded[/bold magenta]")
+    #         continue
 
 
 if __name__ == '__main__':

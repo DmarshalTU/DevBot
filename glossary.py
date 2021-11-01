@@ -17,7 +17,11 @@ def cost():
                 '--granularity', 'MONTHLY',
                 '--metrics', 'BlendedCost'))
 
+def ls_usr():
+    return str(sh.aws('iam', 'list-users'))
+
 gls  = {
     'testr': testr,
-    'cost': cost
+    'cost': cost,
+    'ls-usr': ls_usr
 }
