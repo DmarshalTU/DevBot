@@ -1,0 +1,5 @@
+sh
+pyTelegramBotAPI
+pyyaml
+rich
+python-dotenv
