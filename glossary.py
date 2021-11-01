@@ -20,8 +20,23 @@ def cost():
 def ls_usr():
     return str(sh.aws('iam', 'list-users'))
 
+def tree():
+    return str(sh.tree())
+
+def crt_vpc():
+    return str(sh.aws('ec2',\
+                        'create-vpc',\
+                        '--cidr-block',\
+                        '10.0.0.0/16',\
+                        '--query',\
+                        'Vpc.VpcId',\
+                        '--output',\
+                        'text'
+                ))
+
 gls  = {
     'testr': testr,
     'cost': cost,
-    'ls-usr': ls_usr
+    'ls-usr': ls_usr,
+    'tr': tree
 }
