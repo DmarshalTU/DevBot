@@ -13,6 +13,7 @@ import os
 load_dotenv()
 
 TOKEN = os.environ.get("TOKEN")
+ADMIN = os.environ.get("ADMIN")
 
 # GLOBALS
 console = Console()
@@ -108,7 +109,7 @@ def telegram_bot(api_token):
 
     @bot.message_handler(commands=['start'])
     def start_msg(message):
-        if message.chat.id == 1864932840:
+        if message.chat.id == ADMIN:
             bot.send_message(message.chat.id, "Hello Admin!")
             print(f'Loggen in: {message.chat.id}')
 
