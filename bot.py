@@ -125,12 +125,13 @@ def telegram_bot(api_token):
 
     _handler(bot)
     bot.polling()
+    # TODO when in prod uncomment
     # while True:
     #     try:
-    #         print("[bold magenta]Started[/bold magenta]")
+    #         console.log("[bold magenta]Started[/bold magenta]")
     #         bot.polling()
     #     except requests.exceptions.ReadTimeout:
-    #         print("[bold magenta]Reloaded[/bold magenta]")
+    #         console.log("[bold magenta]Reloaded[/bold magenta]")
     #         continue
 
 
