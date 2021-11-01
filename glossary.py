@@ -13,7 +13,7 @@ def testr():
 def cost():
     return str(sh.aws('ce',
                 'get-cost-and-usage',
-                '--time-period', f'Start={current_year_full}-{current_month}-01,End={current_year_full}-{current_month}-{current_day}',
+                '--time-period', f'Start={current_year_full}-{int(current_month) - 1}-01,End={current_year_full}-{current_month}-{current_day}',
                 '--granularity', 'MONTHLY',
                 '--metrics', 'BlendedCost'))
 

@@ -113,12 +113,12 @@ def telegram_bot(api_token):
     @bot.message_handler(commands=['start'])
     def start_msg(message):
         if message.chat.id == int(ADMIN):
-            bot.send_message(message.chat.id, "Hello Admin!")
-            console.log(f'Loggen in: {message.chat.id}')
+            bot.send_message(message.chat.id, f"Hello {message.from_user.first_name}!")
+            console.log(f'Loggen in: {message.from_user.first_name, message.chat.id}')
 
         else:
             bot.send_message(message.chat.id, "403")
-            console.log(f'Tried: {message.chat.id}')
+            console.log(f'Tried: {message.from_user.first_name, message.chat.id}')
             ban_user(message)
 
         logs(message)
