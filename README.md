@@ -18,7 +18,8 @@
 
 ## &#x1f4c8; GitHub Stats
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=DmarshalTU&repo=DevBot)]()
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=DmarshalTU&repo=DevBot)](https://github.com/DmarshalTU/DevBot)
+
 
 
 

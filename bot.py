@@ -19,6 +19,8 @@ ADMIN = os.environ.get("ADMIN")
 console = Console()
 
 # FUNCTIONS
+
+
 def _handler(bot):
     @bot.message_handler(content_types=['text'])
     def send_text(message):
@@ -28,6 +30,7 @@ def _handler(bot):
 
         else:
             _cnf(bot, message)
+
 
 def pick_cmd(bot, message):
     console.log(message.text.lower())
@@ -42,13 +45,14 @@ def pick_cmd(bot, message):
             logs(message)
 
         except Exception as ex:
-            logs(message , ex)
+            logs(message, ex)
             bot.send_message(
                 message.chat.id,
                 f'{ex}'
             )
     else:
         _cnf(bot, message)
+
 
 def _cnf(bot, message) -> None:
     cnf = f"CNF: {message.text.lower()}"
@@ -58,7 +62,8 @@ def _cnf(bot, message) -> None:
         cnf
     )
 
-def logs(msg: object, ex = 'None'):
+
+def logs(msg: object, ex='None'):
     data = {
         msg.date: {
             'ID': msg.from_user.id,
@@ -68,35 +73,39 @@ def logs(msg: object, ex = 'None'):
         }
     }
     try:
-        with open('logs.yml','a') as file:
+        with open('logs.yml', 'a') as file:
             _extracted_from_logs_12(file, data)
     except Exception as ex:
         with open('logs.yml', 'w') as file:
             _extracted_from_logs_12(file, data)
 
 # TODO Rename this here and in `logs`
+
+
 def _extracted_from_logs_12(file, data):
     console = Console(file=file)
     console.rule(f"Report Generated {datetime.now().ctime()}")
     yaml.dump(data, file, default_flow_style=False)
 
+
 def ban_user(msg: object):
     data = {
-            msg.date: {
-                'ID': msg.from_user.id
-            }
+        msg.date: {
+            'ID': msg.from_user.id
         }
+    }
     try:
-        with open('banned.yml','a') as file:
+        with open('banned.yml', 'a') as file:
             _extracted_from_logs_12(file, data)
 
     except Exception as ex:
-        with open('banned.yml','w') as file:
+        with open('banned.yml', 'w') as file:
             _extracted_from_logs_12(file, data)
+
 
 def check_banned(msg) -> bool:
     try:
-       with open('banned.yml') as file:
+        with open('banned.yml') as file:
             data = yaml.load(file, Loader=yaml.Loader)
             for k, v in data.items():
                 for x in v.keys():
@@ -107,18 +116,22 @@ def check_banned(msg) -> bool:
         # TODO WARNING!!!!!! AHTUNG!!!!
         return True
 
+
 def telegram_bot(api_token):
     bot = telebot.TeleBot(api_token)
 
     @bot.message_handler(commands=['start'])
     def start_msg(message):
         if message.chat.id == int(ADMIN):
-            bot.send_message(message.chat.id, f"Hello {message.from_user.first_name}!")
-            console.log(f'Loggen in: {message.from_user.first_name, message.chat.id}')
+            bot.send_message(
+                message.chat.id, f"Hello {message.from_user.first_name}!")
+            console.log(
+                f'Loggen in: {message.from_user.first_name, message.chat.id}')
 
         else:
             bot.send_message(message.chat.id, "403")
-            console.log(f'Tried: {message.from_user.first_name, message.chat.id}')
+            console.log(
+                f'Tried: {message.from_user.first_name, message.chat.id}')
             ban_user(message)
 
         logs(message)
