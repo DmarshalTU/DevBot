@@ -21,7 +21,7 @@
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=DmarshalTU&repo=DevBot)]()
 
 
-<iframe src="https://drive.google.com/file/d/1dedIFKDap4O9tzPSz2iSZdK6WcCOb5H6/preview" width="640" height="480" allow="autoplay"></iframe>
+
 
 # 1: Bot
 
