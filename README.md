@@ -22,6 +22,10 @@
 
 
 
+https://user-images.githubusercontent.com/59089266/140767630-62492cf4-01ae-4354-a671-36e4c61828cc.mp4
+
+
+
 
 # 1: Bot
 
