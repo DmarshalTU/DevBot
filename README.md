@@ -3,7 +3,7 @@
  <h1 align="center">DevOps TG_BOT</h1>
  <p align="center">Denis Tu Nov, 2021</p>
 
- ![GitHub last commit](https://img.shields.io/github/last-commit/DmarshalTU/DevOps_Project?style=plastic)
+ ![GitHub last commit](https://img.shields.io/github/last-commit/DmarshalTU/DevBot?style=plastic)
 
 </p>
 
