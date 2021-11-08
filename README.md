@@ -25,10 +25,45 @@
 https://user-images.githubusercontent.com/59089266/140767630-62492cf4-01ae-4354-a671-36e4c61828cc.mp4
 
 
+# 0: Pre-Instalation
+- Create Telegram bot with BotFather
+- Create IAM user with admin privilage in AWS
 
+# 1: Instalation
+Make sure you have ansible, awscli, terraform and python installed on the machine.
+<br><br>
+# TODO#DEV
+- [:white_large_square:] Create installation script
+<br><br>
 
-# 1: Bot
+```bash
+git clone repo
+cd repo
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requiremnts.txt
+touch .env
+```
+In file .env copy:
+```bash
+TOKEN = 'BOT_TOKEN'
+ADMIN = YOUR_TELEGRAM_ID
+```
 
-# TODO
+Start the bot:
+```bash
+python bot.py
+```
+
+<br><br>
+# TODO#DEV
+- [:white_large_square:] Create bot description
+- [:white_large_square:] Create work flow
+- [:white_large_square:] Create examples
+<br><br>
+
+<br><br>
+# TODO#DEV
 - [:white_check_mark:] 
-- [:white_large_square:] 
+- [:white_large_square:]
+<br><br>
