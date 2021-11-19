@@ -71,4 +71,3 @@ python bot.py
 - [:white_large_square:]
 <br><br>
 
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
