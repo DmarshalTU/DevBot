@@ -115,7 +115,7 @@ def check_banned(msg) -> bool:
     except Exception as ex:
         # TODO WARNING!!!!!! AHTUNG!!!!
         return True
-
+# 523nwfn3p42uagrjfnkb8trv44hy
 
 def telegram_bot(api_token):
     bot = telebot.TeleBot(api_token)
